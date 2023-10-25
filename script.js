@@ -7,13 +7,6 @@ gameBoardArr.forEach((item, i) => {
   squares[i].textContent = item;
 });
 
-// squares.forEach((square, i) => {
-//   for (let i = 0; i < gameBoardArr.length - 1; i++) {
-//     const cell = document.createElement("div");
-//     cell.innerText = gameBoardArr[i];
-//   }
-// });
-
 // const gameBoard = {
 //   gameBoardArr: ["O", "X", "X", "O", "O", "X", "X", "O", "X"],
 // };
