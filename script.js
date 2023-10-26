@@ -1,37 +1,31 @@
 const container = document.querySelector(".container");
 const squares = document.querySelectorAll(".square");
 
-// const gameBoard = {
-//   gameBoardArr: ["O", "X", "X", "O", "O", "X", "X", "O", "X"],
-// };
-
 const gameBoardArr = [];
 
-function createPlayer(name, type) {
-  const newPlayer = {};
-  newPlayer.userName = name;
-  newPlayer.type = type;
-  return newPlayer;
+function addToBoard(choice, i) {
+  gameBoardArr.push(choice);
+  gameBoardArr.forEach((item) => {
+    squares[i].textContent = item;
+  });
 }
 
-const playerOne = createPlayer("Player One", "O");
-const playerTwo = createPlayer("Player Two", "X");
-
-console.log(playerOne);
-console.log(playerTwo);
-
-function addToBoard(item) {
-  this.gameBoardArr.push(item);
-}
-
-// playerOne.addToBoard("X");
-
-gameBoardArr.push("X");
-gameBoardArr.push("O");
-gameBoardArr.push("X");
+addToBoard("X", 6);
+addToBoard("0", 7);
 
 console.log(gameBoardArr);
 
-gameBoardArr.forEach((item, i) => {
-  squares[i].textContent = item;
-});
+// NEED TO EVENTUALLY CREATE A NESTED ARRAY AND CORRESPONDING OBJECT?
+// const gameBoardArr = [[], [], []];
+// then perhaps an object to fill this?
+
+// THE PLAYER CREATION FUNCTION - WHEN I KNOW WHAT TO DO WITH IT
+// function createPlayer(name, type) {
+//     const newPlayer = {};
+//     newPlayer.name = name;
+//     newPlayer.type = type;
+//     return newPlayer;
+//   }
+
+//   const playerOne = createPlayer("Player One", "O");
+//   const playerTwo = createPlayer("Player Two", "X");
