@@ -1,6 +1,8 @@
 const container = document.querySelector(".container");
 const squares = document.querySelectorAll(".square");
 
+// Create Player Object
+
 function createPlayer(name, type) {
   const newPlayer = {};
   newPlayer.name = name;
@@ -11,13 +13,25 @@ function createPlayer(name, type) {
 const playerOne = createPlayer("Player One", "0");
 const playerTwo = createPlayer("Player Two", "X");
 
+// Square event listener functionality
+
+const gameBoardArr = ["X", "0"];
+
 squares.forEach((square) => {
   square.addEventListener("click", () => {
-    square.innerText = "X";
+    if (gameBoardArr[gameBoardArr.length - 1] === playerOne.type) {
+      gameBoardArr.push(playerTwo.type);
+      square.innerText = playerTwo.type;
+    } else {
+      gameBoardArr.push(playerOne.type);
+      square.innerText = playerOne.type;
+    }
   });
 });
 
-const gameBoardArr = [];
+console.log(gameBoardArr[gameBoardArr.length - 1]);
+
+// Add to Board Functionality - need to combine with player alternation object, then combine with the above
 
 function addToBoard(choice, i) {
   gameBoardArr.push(choice);
