@@ -1,6 +1,16 @@
 const container = document.querySelector(".container");
 const squares = document.querySelectorAll(".square");
 
+function createPlayer(name, type) {
+  const newPlayer = {};
+  newPlayer.name = name;
+  newPlayer.type = type;
+  return newPlayer;
+}
+
+const playerOne = createPlayer("Player One", "0");
+const playerTwo = createPlayer("Player Two", "X");
+
 const gameBoardArr = [];
 
 function addToBoard(choice, i) {
@@ -12,20 +22,13 @@ function addToBoard(choice, i) {
 
 addToBoard("X", 6);
 addToBoard("0", 7);
+addToBoard("X", 2);
+addToBoard("0", 4);
+addToBoard(playerOne.type, 5);
+addToBoard(playerTwo.type, 8);
 
 console.log(gameBoardArr);
 
 // NEED TO EVENTUALLY CREATE A NESTED ARRAY AND CORRESPONDING OBJECT?
 // const gameBoardArr = [[], [], []];
 // then perhaps an object to fill this?
-
-// THE PLAYER CREATION FUNCTION - WHEN I KNOW WHAT TO DO WITH IT
-// function createPlayer(name, type) {
-//     const newPlayer = {};
-//     newPlayer.name = name;
-//     newPlayer.type = type;
-//     return newPlayer;
-//   }
-
-//   const playerOne = createPlayer("Player One", "O");
-//   const playerTwo = createPlayer("Player Two", "X");
