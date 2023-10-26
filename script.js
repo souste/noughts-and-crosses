@@ -11,6 +11,12 @@ function createPlayer(name, type) {
 const playerOne = createPlayer("Player One", "0");
 const playerTwo = createPlayer("Player Two", "X");
 
+squares.forEach((square) => {
+  square.addEventListener("click", () => {
+    square.innerText = "X";
+  });
+});
+
 const gameBoardArr = [];
 
 function addToBoard(choice, i) {
