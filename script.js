@@ -1,53 +1,60 @@
 const container = document.querySelector(".container");
 const squares = document.querySelectorAll(".square");
 
-// Create Player Object
+// Create Player Object (Factory)
 
-function createPlayer(name, type) {
+function createPlayer(name, type, score) {
   const newPlayer = {};
   newPlayer.name = name;
   newPlayer.type = type;
+  newPlayer.score = score;
   return newPlayer;
 }
 
-const playerOne = createPlayer("Player One", "0");
-const playerTwo = createPlayer("Player Two", "X");
+const playerOne = createPlayer("Player One", "0", 0);
+const playerTwo = createPlayer("Player Two", "X", 0);
 
-// Square event listener functionality
+// GameBoard (IIFE Module)
 
-const gameBoardArr = ["X", "0"];
+const GameBoard = (function () {
+  const gameBoardArr = [];
 
-squares.forEach((square) => {
-  square.addEventListener("click", () => {
-    if (gameBoardArr[gameBoardArr.length - 1] === playerOne.type) {
-      gameBoardArr.push(playerTwo.type);
-      square.innerText = playerTwo.type;
-    } else {
-      gameBoardArr.push(playerOne.type);
-      square.innerText = playerOne.type;
-    }
-  });
-});
+  const addToBoard = function (choice, i) {
+    gameBoardArr.push(choice);
+    gameBoardArr.forEach((item) => {
+      squares[i].textContent = item;
+    });
+  };
+  return { gameBoardArr, addToBoard };
+})();
 
-console.log(gameBoardArr[gameBoardArr.length - 1]);
+GameBoard.addToBoard("X", 6);
+GameBoard.addToBoard("0", 7);
+GameBoard.addToBoard("X", 2);
+GameBoard.addToBoard("0", 4);
+GameBoard.addToBoard(playerOne.type, 5);
+GameBoard.addToBoard(playerTwo.type, 8);
 
-// Add to Board Functionality - need to combine with player alternation object, then combine with the above
+console.log(GameBoard.gameBoardArr);
 
-function addToBoard(choice, i) {
-  gameBoardArr.push(choice);
-  gameBoardArr.forEach((item) => {
-    squares[i].textContent = item;
-  });
-}
+// Square event listener functionality//////////////////////////////////////////////////////////
 
-addToBoard("X", 6);
-addToBoard("0", 7);
-addToBoard("X", 2);
-addToBoard("0", 4);
-addToBoard(playerOne.type, 5);
-addToBoard(playerTwo.type, 8);
+// squares.forEach((square) => {
+//   square.addEventListener("click", () => {
+//     if (gameBoardArr[gameBoardArr.length - 1] === playerOne.type) {
+//       gameBoardArr.push(playerTwo.type);
+//       square.innerText = playerTwo.type;
+//       console.log(gameBoardArr);
+//     } else {
+//       gameBoardArr.push(playerOne.type);
+//       square.innerText = playerOne.type;
+//       console.log(gameBoardArr);
+//     }
+//   });
+// });
 
-console.log(gameBoardArr);
+// console.log(gameBoardArr[gameBoardArr.length - 1]);
+//////////////////////////////////////////////////////////////////////////////////////////////////
 
 // NEED TO EVENTUALLY CREATE A NESTED ARRAY AND CORRESPONDING OBJECT?
 // const gameBoardArr = [[], [], []];
