@@ -78,5 +78,16 @@ function addToArray(squareID) {
   if (indices) {
     testGameBoardArr[indices[0]][indices[1]] = "X";
     console.log(testGameBoardArr);
+    winner();
   }
 }
+
+const winner = function () {
+  if (
+    testGameBoardArr[0][0] === "X" &&
+    testGameBoardArr[0][1] === "X" &&
+    testGameBoardArr[0][2] === "X"
+  ) {
+    console.log("Well done you are the winner!");
+  }
+};
