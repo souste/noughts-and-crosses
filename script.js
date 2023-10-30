@@ -24,12 +24,25 @@ const GameBoard = (function () {
 
   let squareID = "";
 
+  let turn = 1;
+  let player = "";
+  // need to program this into start screen
+
   squares.forEach((square) => {
     square.addEventListener("click", (event) => {
-      square.innerText = "X";
-      squareID = event.target.id;
-
-      addToArray(squareID);
+      if (turn == 0) {
+        player = playerOne.type;
+        square.innerText = playerOne.type;
+        squareID = event.target.id;
+        addToArray(squareID, player);
+        turn = 1;
+      } else if (turn === 1) {
+        player = playerTwo.type;
+        square.innerText = playerTwo.type;
+        squareID = event.target.id;
+        addToArray(squareID, player);
+        turn = 0;
+      }
     });
   });
 
@@ -48,9 +61,15 @@ const GameBoard = (function () {
 
     const indices = indexObj[squareID];
     if (indices) {
-      gameBoardArr[indices[0]][indices[1]] = "X";
-      console.log(gameBoardArr);
-      winner();
+      if (player === playerOne.type) {
+        gameBoardArr[indices[0]][indices[1]] = "0";
+        console.log(gameBoardArr);
+        winner();
+      } else if (player === playerTwo.type) {
+        gameBoardArr[indices[0]][indices[1]] = "X";
+        console.log(gameBoardArr);
+        winner();
+      }
     }
   }
 
@@ -60,7 +79,7 @@ const GameBoard = (function () {
       gameBoardArr[0][1] === "X" &&
       gameBoardArr[0][2] === "X"
     ) {
-      console.log("Well done you are the winner!");
+      console.log("Well done Player Two is the winner!");
     }
   };
 
