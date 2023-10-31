@@ -59,12 +59,20 @@ const GameBoard = (function () {
       const [a, b, c] = line;
       if (gameBoardArr[a] === "0" && gameBoardArr[b] === "0" && gameBoardArr[c] === "0") {
         console.log("Player One Wins");
-        alert("Player One Wins");
-        clearBoard();
+        setTimeout(function () {
+          alert("Player One Wins");
+        }, 1);
+        setTimeout(function () {
+          clearBoard();
+        }, 1);
       } else if (gameBoardArr[a] === "X" && gameBoardArr[b] === "X" && gameBoardArr[c] === "X") {
         console.log("Player Two Wins");
-        alert("Player Two Wins");
-        clearBoard();
+        setTimeout(function () {
+          alert("Player Two Wins");
+        }, 1);
+        setTimeout(function () {
+          clearBoard();
+        }, 1);
       }
     }
   };
