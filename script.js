@@ -23,24 +23,25 @@ const GameBoard = (function () {
   ];
 
   let squareID = "";
-
-  let turn = 1;
+  let turn = 0;
   let player = "";
   // need to program this into start screen
 
   squares.forEach((square) => {
     square.addEventListener("click", (event) => {
-      if (turn == 0) {
+      if (turn == 0 && square.innerText === "") {
         player = playerOne.type;
         square.innerText = playerOne.type;
         squareID = event.target.id;
         addToArray(squareID, player);
+
         turn = 1;
-      } else if (turn === 1) {
+      } else if (turn === 1 && square.innerText === "") {
         player = playerTwo.type;
         square.innerText = playerTwo.type;
         squareID = event.target.id;
         addToArray(squareID, player);
+
         turn = 0;
       }
     });
