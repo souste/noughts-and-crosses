@@ -29,18 +29,14 @@ const GameBoard = (function () {
         player = playerOne.type;
         square.innerText = playerOne.type;
         squareID = event.target.id;
-        squareIDText = square.innerText;
         gameBoardArr[squareID] = playerOne.type;
-        console.log(gameBoardArr);
         turn = 1;
         winner();
       } else if (turn === 1 && square.innerText === "") {
         player = playerTwo.type;
         square.innerText = playerTwo.type;
         squareID = event.target.id;
-        squareIDText = square.innerText;
         gameBoardArr[squareID] = playerTwo.type;
-        console.log(gameBoardArr);
         turn = 0;
         winner();
       }
@@ -48,6 +44,7 @@ const GameBoard = (function () {
   });
 
   const winner = function () {
+    // need DRAW functionality
     const winnerLines = [
       [0, 1, 2],
       [3, 4, 5],
@@ -62,10 +59,22 @@ const GameBoard = (function () {
       const [a, b, c] = line;
       if (gameBoardArr[a] === "0" && gameBoardArr[b] === "0" && gameBoardArr[c] === "0") {
         console.log("Player One Wins");
+        alert("Player One Wins");
+        clearBoard();
       } else if (gameBoardArr[a] === "X" && gameBoardArr[b] === "X" && gameBoardArr[c] === "X") {
         console.log("Player Two Wins");
+        alert("Player Two Wins");
+        clearBoard();
       }
     }
+  };
+
+  // Maybe have a restart button to clear the board instead (currently the board is being cleared before the third winning 0 or X is displayed)
+  const clearBoard = function () {
+    for (let i = 0; i < gameBoardArr.length; i++) {
+      gameBoardArr[i] = "";
+    }
+    squares.forEach((square) => (square.innerText = ""));
   };
 
   return { gameBoardArr };
