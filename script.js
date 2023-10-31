@@ -16,11 +16,7 @@ const playerTwo = createPlayer("Player Two", "X");
 // GameBoard (IIFE Module)
 
 const GameBoard = (function () {
-  const gameBoardArr = [
-    [0, 1, 2],
-    [3, 4, 5],
-    [6, 7, 8],
-  ];
+  const gameBoardArr = ["", "", "", "", "", "", "", "", ""];
 
   let squareID = "";
   let turn = 0;
@@ -33,54 +29,44 @@ const GameBoard = (function () {
         player = playerOne.type;
         square.innerText = playerOne.type;
         squareID = event.target.id;
-        addToArray(squareID, player);
+        squareIDText = square.innerText;
+        gameBoardArr[squareID] = playerOne.type;
+        console.log(gameBoardArr);
         turn = 1;
-        winner(squareID);
+        winner();
       } else if (turn === 1 && square.innerText === "") {
         player = playerTwo.type;
         square.innerText = playerTwo.type;
         squareID = event.target.id;
-        addToArray(squareID, player);
+        squareIDText = square.innerText;
+        gameBoardArr[squareID] = playerTwo.type;
+        console.log(gameBoardArr);
         turn = 0;
-        winner(squareID);
+        winner();
       }
     });
   });
 
-  function addToArray(squareID) {
-    let indexObj = {
-      0: [0, 0],
-      1: [0, 1],
-      2: [0, 2],
-      3: [1, 0],
-      4: [1, 1],
-      5: [1, 2],
-      6: [2, 0],
-      7: [2, 1],
-      8: [2, 2],
-    };
-
-    const indices = indexObj[squareID];
-    if (indices) {
-      if (player === playerOne.type) {
-        gameBoardArr[indices[0]][indices[1]] = "0";
-        console.log(gameBoardArr);
-      } else if (player === playerTwo.type) {
-        gameBoardArr[indices[0]][indices[1]] = "X";
-        console.log(gameBoardArr);
-      }
-    }
-  }
-
   const winner = function () {
-    if (
-      gameBoardArr[0][0] === "X" &&
-      gameBoardArr[0][1] === "X" &&
-      gameBoardArr[0][2] === "X"
-    ) {
-      console.log("Well done Player Two is the winner!");
+    const winnerLines = [
+      [0, 1, 2],
+      [3, 4, 5],
+      [6, 7, 8],
+      [0, 3, 6],
+      [1, 4, 7],
+      [2, 5, 8],
+      [0, 4, 8],
+      [2, 4, 6],
+    ];
+    for (const line of winnerLines) {
+      const [a, b, c] = line;
+      if (gameBoardArr[a] === "0" && gameBoardArr[b] === "0" && gameBoardArr[c] === "0") {
+        console.log("Player One Wins");
+      } else if (gameBoardArr[a] === "X" && gameBoardArr[b] === "X" && gameBoardArr[c] === "X") {
+        console.log("Player Two Wins");
+      }
     }
   };
 
-  return { addToArray, gameBoardArr };
+  return { gameBoardArr };
 })();
