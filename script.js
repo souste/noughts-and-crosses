@@ -73,6 +73,14 @@ const GameBoard = (function () {
         setTimeout(function () {
           clearBoard();
         }, 1);
+      } else if (gameBoardArr.every((el) => el !== "")) {
+        setTimeout(function () {
+          alert("Draw");
+        }, 1);
+        setTimeout(function () {
+          clearBoard();
+        }, 1);
+        return;
       }
     }
   };
