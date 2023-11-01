@@ -3,17 +3,7 @@ const squares = document.querySelectorAll(".square");
 const playerOneName = document.querySelector("#nameOne");
 const playerTwoName = document.querySelector("#nameTwo");
 const startButton = document.querySelector("#start-button");
-
-let playerOne;
-
-startButton.addEventListener("click", (event) => {
-  event.preventDefault();
-  playerOne = createPlayer(playerOneName.value, document.querySelector(`input[name="typeSelectOne"]:checked`).value);
-  playerTwo = createPlayer(playerTwoName.value, document.querySelector(`input[name="typeSelectTwo"]:checked`).value);
-  container.style.display = "grid";
-});
-
-console.log("outside", playerOne);
+const display = document.querySelector(".display");
 
 // Create Player Object (Factory)
 
@@ -23,6 +13,17 @@ function createPlayer(name, type) {
   newPlayer.type = type;
   return newPlayer;
 }
+
+let playerOne;
+let playerTwo;
+
+startButton.addEventListener("click", (event) => {
+  event.preventDefault();
+  playerOne = createPlayer(playerOneName.value, document.querySelector(`input[name="typeSelectOne"]:checked`).value);
+  playerTwo = createPlayer(playerTwoName.value, document.querySelector(`input[name="typeSelectTwo"]:checked`).value);
+  container.style.display = "grid";
+  display.innerText = `${playerOne.name} is ${playerOne.type}'s. ${playerTwo.name} is ${playerTwo.type}'s.`;
+});
 
 // GameBoard (IIFE Module)
 
@@ -53,7 +54,6 @@ const GameBoard = (function () {
   });
 
   const winner = function () {
-    // need DRAW functionality
     const winnerLines = [
       [0, 1, 2],
       [3, 4, 5],
@@ -68,25 +68,25 @@ const GameBoard = (function () {
       const [a, b, c] = line;
       if (gameBoardArr[a] === "0" && gameBoardArr[b] === "0" && gameBoardArr[c] === "0") {
         setTimeout(function () {
-          alert(`${playerOne.name} wins`);
-        }, 1);
+          display.innerText = `${playerOne.name} wins`;
+        }, 100);
         setTimeout(function () {
           clearBoard();
-        }, 1);
+        }, 1000);
       } else if (gameBoardArr[a] === "X" && gameBoardArr[b] === "X" && gameBoardArr[c] === "X") {
         setTimeout(function () {
-          alert(`${playerTwo.name} wins`);
-        }, 1);
+          display.innerText = `${playerTwo.name} wins`;
+        }, 100);
         setTimeout(function () {
           clearBoard();
-        }, 1);
+        }, 1000);
       } else if (gameBoardArr.every((el) => el !== "")) {
         setTimeout(function () {
-          alert("Draw");
-        }, 1);
+          display.innerText = "Draw";
+        }, 100);
         setTimeout(function () {
           clearBoard();
-        }, 1);
+        }, 1000);
         return;
       }
     }
