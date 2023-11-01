@@ -8,7 +8,6 @@
     <script src="script.js" defer></script>
   </head>
   <body>
-    <h1>Noughts & Crosses</h1>
     <div class="container">
       <div id="0" class="square"></div>
       <div id="1" class="square"></div>
@@ -19,6 +18,41 @@
       <div id="6" class="square"></div>
       <div id="7" class="square"></div>
       <div id="8" class="square"></div>
+    </div>
+    <div>
+      <h1>Welcome to Noughts & Crosses</h1>
+
+      <form>
+        <div class="player-one-input">
+          <p>Player One</p>
+          <label for="name">Please Enter Your Name</label>
+          <input type="text" id="nameOne" placeholder="Player 1" />
+        </div>
+        <div class="type-selection-input">
+          <label for="type">Noughts or Crosses?</label>
+          <div>
+            <input type="radio" name="typeSelectOne" id="noughts" value="0" >Noughts </input>
+            <input type="radio" name="typeSelectOne" id="crosses" value="X" >Crosses</input>
+          </div>
+        </div>
+      
+      <div class="player-two-input">
+        <p>Player Two</p>
+        <label for="name">Please Enter Your Name</label>
+        <input type="text" id="nameTwo" placeholder="Player 2" />
+      </div>
+      <div class="type-selection-input">
+        <label for="type">Noughts or Crosses?</label>
+        <div>
+          <input type="radio" name="typeSelectTwo" id="noughts" value="0" >Noughts </input>
+          <input type="radio" name="typeSelectTwo" id="crosses" value="X" >Crosses</input>
+        </div>
+      </div>
+      <div>
+      <button type="submit" id="submit-button">Start</button>
+      <button>Reset</button>
+    </div>
+      </form>
     </div>
   </body>
 </html>

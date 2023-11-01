@@ -1,5 +1,21 @@
 const container = document.querySelector(".container");
 const squares = document.querySelectorAll(".square");
+const playerOneName = document.querySelector("#nameOne");
+const playerTwoName = document.querySelector("#nameTwo");
+const submitButton = document.querySelector("#submit-button");
+
+let playerOne;
+
+submitButton.addEventListener("click", (event) => {
+  event.preventDefault();
+  playerOne = createPlayer(playerOneName.value, document.querySelector(`input[name="typeSelectOne"]:checked`).value);
+  playerTwo = createPlayer(playerTwoName.value, document.querySelector(`input[name="typeSelectTwo"]:checked`).value);
+
+  console.log("inside", playerOne);
+  console.log("inside", playerTwo);
+});
+
+console.log("outside", playerOne);
 
 // Create Player Object (Factory)
 
@@ -9,9 +25,6 @@ function createPlayer(name, type) {
   newPlayer.type = type;
   return newPlayer;
 }
-
-const playerOne = createPlayer("Player One", "0");
-const playerTwo = createPlayer("Player Two", "X");
 
 // GameBoard (IIFE Module)
 
@@ -57,14 +70,14 @@ const GameBoard = (function () {
       const [a, b, c] = line;
       if (gameBoardArr[a] === "0" && gameBoardArr[b] === "0" && gameBoardArr[c] === "0") {
         setTimeout(function () {
-          alert("Player One Wins");
+          alert(`${playerOne.name} wins`);
         }, 1);
         setTimeout(function () {
           clearBoard();
         }, 1);
       } else if (gameBoardArr[a] === "X" && gameBoardArr[b] === "X" && gameBoardArr[c] === "X") {
         setTimeout(function () {
-          alert("Player Two Wins");
+          alert(`${playerTwo.name} wins`);
         }, 1);
         setTimeout(function () {
           clearBoard();
