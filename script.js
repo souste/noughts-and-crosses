@@ -2,17 +2,15 @@ const container = document.querySelector(".container");
 const squares = document.querySelectorAll(".square");
 const playerOneName = document.querySelector("#nameOne");
 const playerTwoName = document.querySelector("#nameTwo");
-const submitButton = document.querySelector("#submit-button");
+const startButton = document.querySelector("#start-button");
 
 let playerOne;
 
-submitButton.addEventListener("click", (event) => {
+startButton.addEventListener("click", (event) => {
   event.preventDefault();
   playerOne = createPlayer(playerOneName.value, document.querySelector(`input[name="typeSelectOne"]:checked`).value);
   playerTwo = createPlayer(playerTwoName.value, document.querySelector(`input[name="typeSelectTwo"]:checked`).value);
-
-  console.log("inside", playerOne);
-  console.log("inside", playerTwo);
+  container.style.display = "grid";
 });
 
 console.log("outside", playerOne);
