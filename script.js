@@ -20,8 +20,6 @@ const GameBoard = (function () {
 
   let squareID = "";
   let turn = 0;
-  let player = "";
-  // need to program this into start screen
 
   squares.forEach((square) => {
     square.addEventListener("click", (event) => {
@@ -58,7 +56,6 @@ const GameBoard = (function () {
     for (const line of winnerLines) {
       const [a, b, c] = line;
       if (gameBoardArr[a] === "0" && gameBoardArr[b] === "0" && gameBoardArr[c] === "0") {
-        console.log("Player One Wins");
         setTimeout(function () {
           alert("Player One Wins");
         }, 1);
@@ -66,7 +63,6 @@ const GameBoard = (function () {
           clearBoard();
         }, 1);
       } else if (gameBoardArr[a] === "X" && gameBoardArr[b] === "X" && gameBoardArr[c] === "X") {
-        console.log("Player Two Wins");
         setTimeout(function () {
           alert("Player Two Wins");
         }, 1);
@@ -85,7 +81,6 @@ const GameBoard = (function () {
     }
   };
 
-  // Maybe have a restart button to clear the board instead (currently the board is being cleared before the third winning 0 or X is displayed)
   const clearBoard = function () {
     for (let i = 0; i < gameBoardArr.length; i++) {
       gameBoardArr[i] = "";
