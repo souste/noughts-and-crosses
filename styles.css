@@ -23,7 +23,7 @@ p {
   grid-template-columns: 100px 100px 100px;
   grid-template-rows: 100px 100px 100px;
   padding: 60px 30px;
-  display: none;
+  /* display: none; */
 }
 
 .square {

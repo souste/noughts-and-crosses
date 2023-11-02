@@ -40,18 +40,45 @@ const GameBoard = (function () {
         square.innerText = playerOne.type;
         squareID = event.target.id;
         gameBoardArr[squareID] = playerOne.type;
-        turn = 1;
+        computerAI();
+        // turn = 1;
         winner();
       } else if (turn === 1 && square.innerText === "") {
-        player = playerTwo.type;
-        square.innerText = playerTwo.type;
-        squareID = event.target.id;
-        gameBoardArr[squareID] = playerTwo.type;
-        turn = 0;
-        winner();
+        // player = playerTwo.type;
+        // square.innerText = playerTwo.type;
+        // squareID = event.target.id;
+        // gameBoardArr[squareID] = playerTwo.type;
+        // turn = 0;
+        // winner();
       }
     });
   });
+
+  const computerAI = function () {
+    if (document.getElementById("0").innerText === playerOne.type) document.getElementById("1").innerText = playerTwo.type;
+    if (document.getElementById("3").innerText === playerOne.type) document.getElementById("4").innerText = playerTwo.type;
+    if (document.getElementById("6").innerText === playerOne.type) document.getElementById("7").innerText = playerTwo.type;
+  };
+
+  // squares.forEach((square) => {
+  //   square.addEventListener("click", (event) => {
+  //     if (turn == 0 && square.innerText === "") {
+  //       player = playerOne.type;
+  //       square.innerText = playerOne.type;
+  //       squareID = event.target.id;
+  //       gameBoardArr[squareID] = playerOne.type;
+  //       turn = 1;
+  //       winner();
+  //     } else if (turn === 1 && square.innerText === "") {
+  //       player = playerTwo.type;
+  //       square.innerText = playerTwo.type;
+  //       squareID = event.target.id;
+  //       gameBoardArr[squareID] = playerTwo.type;
+  //       turn = 0;
+  //       winner();
+  //     }
+  //   });
+  // });
 
   const winner = function () {
     const winnerLines = [
