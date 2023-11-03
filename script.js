@@ -4,6 +4,7 @@ const playerOneName = document.querySelector("#nameOne");
 const playerTwoName = document.querySelector("#nameTwo");
 const startButton = document.querySelector("#start-button");
 const display = document.querySelector(".display");
+const playerTwoForm = document.querySelector(".playerTwoForm");
 
 // Create Player Object (Factory)
 
@@ -17,33 +18,63 @@ function createPlayer(name, type) {
 let playerOne;
 let playerTwo;
 
-startButton.addEventListener("click", (event) => {
-  event.preventDefault();
-  playerOne = createPlayer(playerOneName.value, document.querySelector(`input[name="typeSelectOne"]:checked`).value);
-  playerTwo = createPlayer(playerTwoName.value, document.querySelector(`input[name="typeSelectTwo"]:checked`).value);
-  container.style.display = "grid";
-  display.innerText = `${playerOne.name} is ${playerOne.type}'s. ${playerTwo.name} is ${playerTwo.type}'s.`;
-});
-
 // GameBoard (IIFE Module)
 
 const GameBoard = (function () {
   const gameBoardArr = ["", "", "", "", "", "", "", "", ""];
 
   let squareID = "";
-  // let turn = 0;
 
-  squares.forEach((square) => {
-    square.addEventListener("click", (event) => {
-      if (square.innerText === "") {
-        player = playerOne.type;
-        square.innerText = playerOne.type;
-        squareID = event.target.id;
-        gameBoardArr[squareID] = playerOne.type;
-        computerAI();
-        winner();
-      }
+  const computerGame = function () {
+    squares.forEach((square) => {
+      square.addEventListener("click", (event) => {
+        if (square.innerText === "") {
+          player = playerOne.type;
+          square.innerText = playerOne.type;
+          squareID = event.target.id;
+          gameBoardArr[squareID] = playerOne.type;
+          computerAI();
+          winner();
+        }
+      });
     });
+  };
+
+  const humanGame = function () {
+    let turn = 0;
+    squares.forEach((square) => {
+      square.addEventListener("click", (event) => {
+        if (turn == 0 && square.innerText === "") {
+          player = playerOne.type;
+          square.innerText = playerOne.type;
+          squareID = event.target.id;
+          gameBoardArr[squareID] = playerOne.type;
+          turn = 1;
+          winner();
+        } else if (turn === 1 && square.innerText === "") {
+          player = playerTwo.type;
+          square.innerText = playerTwo.type;
+          squareID = event.target.id;
+          gameBoardArr[squareID] = playerTwo.type;
+          turn = 0;
+          winner();
+        }
+      });
+    });
+  };
+
+  startButton.addEventListener("click", (event) => {
+    event.preventDefault();
+    playerOne = createPlayer(playerOneName.value, document.querySelector(`input[name="typeSelectOne"]:checked`).value);
+    playerTwo = createPlayer(playerTwoName.value, document.querySelector(`input[name="typeSelectTwo"]:checked`).value);
+    container.style.display = "grid";
+    display.innerText = `${playerOne.name} is ${playerOne.type}'s. ${playerTwo.name} is ${playerTwo.type}'s.`;
+
+    if (document.querySelector(`input[name="humanOrComp"]:checked`).value === "human") {
+      humanGame();
+    } else if (document.querySelector(`input[name="humanOrComp"]:checked`).value === "comp") {
+      computerGame();
+    }
   });
 
   const computerAI = function () {
@@ -61,26 +92,6 @@ const GameBoard = (function () {
       gameBoardArr[squareID] = playerTwo.type;
     }
   };
-
-  // squares.forEach((square) => {
-  //   square.addEventListener("click", (event) => {
-  //     if (turn == 0 && square.innerText === "") {
-  //       player = playerOne.type;
-  //       square.innerText = playerOne.type;
-  //       squareID = event.target.id;
-  //       gameBoardArr[squareID] = playerOne.type;
-  //       turn = 1;
-  //       winner();
-  //     } else if (turn === 1 && square.innerText === "") {
-  //       player = playerTwo.type;
-  //       square.innerText = playerTwo.type;
-  //       squareID = event.target.id;
-  //       gameBoardArr[squareID] = playerTwo.type;
-  //       turn = 0;
-  //       winner();
-  //     }
-  //   });
-  // });
 
   const winner = function () {
     const winnerLines = [
