@@ -31,33 +31,35 @@ const GameBoard = (function () {
   const gameBoardArr = ["", "", "", "", "", "", "", "", ""];
 
   let squareID = "";
-  let turn = 0;
+  // let turn = 0;
 
   squares.forEach((square) => {
     square.addEventListener("click", (event) => {
-      if (turn == 0 && square.innerText === "") {
+      if (square.innerText === "") {
         player = playerOne.type;
         square.innerText = playerOne.type;
         squareID = event.target.id;
         gameBoardArr[squareID] = playerOne.type;
         computerAI();
-        // turn = 1;
         winner();
-      } else if (turn === 1 && square.innerText === "") {
-        // player = playerTwo.type;
-        // square.innerText = playerTwo.type;
-        // squareID = event.target.id;
-        // gameBoardArr[squareID] = playerTwo.type;
-        // turn = 0;
-        // winner();
       }
     });
   });
 
   const computerAI = function () {
-    if (document.getElementById("0").innerText === playerOne.type) document.getElementById("1").innerText = playerTwo.type;
-    if (document.getElementById("3").innerText === playerOne.type) document.getElementById("4").innerText = playerTwo.type;
-    if (document.getElementById("6").innerText === playerOne.type) document.getElementById("7").innerText = playerTwo.type;
+    const emptySquares = [];
+    for (let i = 0; i < gameBoardArr.length; i++) {
+      if (gameBoardArr[i] === "") {
+        emptySquares.push(i);
+      }
+    }
+    if (emptySquares.length > 0) {
+      const randomIndex = Math.floor(Math.random() * emptySquares.length);
+      const squareID = emptySquares[randomIndex];
+      console.log(squareID);
+      document.getElementById(squareID).innerText = playerTwo.type;
+      gameBoardArr[squareID] = playerTwo.type;
+    }
   };
 
   // squares.forEach((square) => {
