@@ -14,12 +14,6 @@ p {
   font-weight: bold;
 }
 
-.display,
-.display2 {
-  font-size: 30px;
-  font-size: 40px;
-}
-
 /* Main Square Grid */
 
 .container {
@@ -64,6 +58,26 @@ img {
   width: 100px;
   height: 100px;
   border: 2px solid black;
+}
+
+/* Display */
+
+.display,
+.display2 {
+  font-size: 30px;
+  font-size: 40px;
+}
+
+.display-images-container {
+  width: 500px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.player1-display-pic,
+.player2-display-pic,
+.comp-display-pic {
+  display: none;
 }
 
 /* Input forms */

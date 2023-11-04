@@ -12,6 +12,9 @@ const playerOneForm = document.querySelector("#player-one-form");
 const playerTwoForm = document.querySelector("#player-two-form");
 const computerForm = document.querySelector("#computer-form");
 const resetButton = document.querySelector(".reset-button");
+const playerOnePic = document.querySelector(".player1-display-pic");
+const playerTwoPic = document.querySelector(".player2-display-pic");
+const compPic = document.querySelector(".comp-display-pic");
 
 const humanButton = document.querySelector(".human-button");
 const computerButton = document.querySelector(".computer-button");
@@ -108,10 +111,14 @@ const GameBoard = (function () {
 
     if (choiceComp === "human") {
       display2.innerText = `${playerOne.name}'s turn`;
+      playerOnePic.style.display = "block";
+      playerTwoPic.style.display = "block";
       humanGame();
     } else if (choiceComp === "comp") {
       playerTwo.name = "Computer";
       display.innerText = `${playerOne.name} is ${playerOne.type}'s. ${playerTwo.name} is ${playerTwo.type}'s.`;
+      playerOnePic.style.display = "block";
+      compPic.style.display = "block";
       computerGame();
     }
     inputContainer.style.display = "none";
@@ -134,6 +141,9 @@ const GameBoard = (function () {
     playerTwoName.value = "";
     choiceComp = "";
     resetButton.style.display = "none";
+    playerOnePic.style.display = "none";
+    playerTwoPic.style.display = "none";
+    compPic.style.display = "none";
   });
 
   const computerAI = function () {
