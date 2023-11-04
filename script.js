@@ -7,14 +7,16 @@ const display = document.querySelector(".display");
 const display2 = document.querySelector(".display2");
 const inputContainer = document.querySelector(".input-container");
 const noughtsSymbol = document.getElementById("noughts");
-const decideButton = document.querySelector(".decide-button");
 const humanOrComp = document.querySelector(".human-or-comp-container");
 const playerOneForm = document.querySelector("#player-one-form");
 const playerTwoForm = document.querySelector("#player-two-form");
 const computerForm = document.querySelector("#computer-form");
 const resetButton = document.querySelector(".reset-button");
 
-// Create Player Object (Factory)
+const humanButton = document.querySelector(".human-button");
+const computerButton = document.querySelector(".computer-button");
+
+// Create Player Object (Factory)humanOrComp
 
 function createPlayer(name, type) {
   const newPlayer = {};
@@ -77,20 +79,22 @@ const GameBoard = (function () {
 
   let choiceComp = "";
 
-  decideButton.addEventListener("click", () => {
-    choiceComp = document.querySelector(`input[name="humanOrComp"]:checked`).value;
+  humanButton.addEventListener("click", () => {
+    choiceComp = "human";
     inputContainer.style.display = "flex";
     humanOrComp.style.display = "none";
+    playerOneForm.style.display = "flex";
+    playerTwoForm.style.display = "flex";
+    startButton.style.display = "block";
+  });
 
-    if (choiceComp === "human") {
-      playerOneForm.style.display = "flex";
-      playerTwoForm.style.display = "flex";
-      startButton.style.display = "block";
-    } else if (choiceComp === "comp") {
-      playerOneForm.style.display = "flex";
-      computerForm.style.display = "flex";
-      startButton.style.display = "block";
-    }
+  computerButton.addEventListener("click", () => {
+    choiceComp = "comp";
+    inputContainer.style.display = "flex";
+    humanOrComp.style.display = "none";
+    playerOneForm.style.display = "flex";
+    computerForm.style.display = "flex";
+    startButton.style.display = "block";
   });
 
   startButton.addEventListener("click", (event) => {
@@ -102,13 +106,15 @@ const GameBoard = (function () {
     display.innerText = `${playerOne.name} is ${playerOne.type}'s. ${playerTwo.name} is ${playerTwo.type}'s.`;
 
     if (choiceComp === "human") {
+      display2.innerText = `${playerOne.name}'s turn`;
       humanGame();
     } else if (choiceComp === "comp") {
+      playerTwo.name = "Computer";
+      display.innerText = `${playerOne.name} is ${playerOne.type}'s. ${playerTwo.name} is ${playerTwo.type}'s.`;
       computerGame();
     }
     inputContainer.style.display = "none";
     startButton.style.display = "none";
-    display2.innerText = `${playerOne.name}'s turn`;
   });
 
   resetButton.addEventListener("click", () => {
@@ -139,7 +145,6 @@ const GameBoard = (function () {
     if (emptySquares.length > 0) {
       const randomIndex = Math.floor(Math.random() * emptySquares.length);
       const squareID = emptySquares[randomIndex];
-      console.log(squareID);
       document.getElementById(squareID).innerText = playerTwo.type;
       gameBoardArr[squareID] = playerTwo.type;
     }

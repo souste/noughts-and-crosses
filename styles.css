@@ -22,6 +22,8 @@ p {
   background-color: black;
 }
 
+/* Main Square Grid */
+
 .container {
   display: grid;
   grid-template-columns: 100px 100px 100px;
@@ -43,14 +45,49 @@ p {
   opacity: 0.5;
 }
 
+/* Human or Computer Form */
+
+.human-or-comp-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.decide-label {
+  font-size: 30px;
+}
+
+.image-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+img {
+  width: 100px;
+  height: 100px;
+  border: 2px solid black;
+}
+
+.decide-radio {
+  margin: 30px;
+  display: flex;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#human,
+#comp {
+}
+
+.decide-button {
+}
+
+/* Input forms */
+
 .input-container {
   display: flex;
   justify-content: space-between;
   width: 600px;
-}
-
-.human-or-comp-container {
-  display: flex;
 }
 
 .player-input-container {
@@ -92,7 +129,8 @@ input[type="text"] {
 }
 
 .start-button,
-.reset-button {
+.reset-button,
+.decide-button {
   background-color: #f87171;
   width: 6rem;
   height: 2.5rem;
