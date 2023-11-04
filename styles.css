@@ -27,7 +27,7 @@ p {
   grid-template-columns: 100px 100px 100px;
   grid-template-rows: 100px 100px 100px;
   padding: 60px 30px;
-  /* display: none; */
+  display: none;
 }
 
 .square {
@@ -47,7 +47,6 @@ p {
   display: flex;
   justify-content: space-between;
   width: 600px;
-  display: none;
 }
 
 .human-or-comp-container {
@@ -60,8 +59,16 @@ p {
   text-align: center;
 }
 
-.playerTwoForm {
-  /* display: none; */
+#player-one-form {
+  display: none;
+}
+
+#player-two-form {
+  display: none;
+}
+
+#computer-form {
+  display: none;
 }
 
 .button-container {
@@ -94,4 +101,8 @@ input[type="text"] {
   font-weight: bold;
   cursor: pointer;
   margin: 10px;
+}
+
+.start-button {
+  display: none;
 }

@@ -5,11 +5,13 @@ const playerTwoName = document.querySelector("#nameTwo");
 const startButton = document.querySelector("#start-button");
 const display = document.querySelector(".display");
 const display2 = document.querySelector(".display2");
-const playerTwoForm = document.querySelector(".playerTwoForm");
 const inputContainer = document.querySelector(".input-container");
 const noughtsSymbol = document.getElementById("noughts");
 const decideButton = document.querySelector(".decide-button");
 const humanOrComp = document.querySelector(".human-or-comp-container");
+const playerOneForm = document.querySelector("#player-one-form");
+const playerTwoForm = document.querySelector("#player-two-form");
+const computerForm = document.querySelector("#computer-form");
 
 // Create Player Object (Factory)
 
@@ -78,6 +80,16 @@ const GameBoard = (function () {
     choiceComp = document.querySelector(`input[name="humanOrComp"]:checked`).value;
     inputContainer.style.display = "flex";
     humanOrComp.style.display = "none";
+
+    if (choiceComp === "human") {
+      playerOneForm.style.display = "flex";
+      playerTwoForm.style.display = "flex";
+      startButton.style.display = "block";
+    } else if (choiceComp === "comp") {
+      playerOneForm.style.display = "flex";
+      computerForm.style.display = "flex";
+      startButton.style.display = "block";
+    }
   });
 
   startButton.addEventListener("click", (event) => {
@@ -86,12 +98,6 @@ const GameBoard = (function () {
     playerTwo = createPlayer(playerTwoName.value, document.querySelector(`input[name="typeSelectTwo"]:checked`).value);
     container.style.display = "grid";
     display.innerText = `${playerOne.name} is ${playerOne.type}'s. ${playerTwo.name} is ${playerTwo.type}'s.`;
-
-    // if (document.querySelector(`input[name="humanOrComp"]:checked`).value === "human") {
-    //   humanGame();
-    // } else if (document.querySelector(`input[name="humanOrComp"]:checked`).value === "comp") {
-    //   computerGame();
-    // }
 
     if (choiceComp === "human") {
       humanGame();
