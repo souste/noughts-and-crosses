@@ -38,6 +38,11 @@ p {
   font-size: 70px;
 }
 
+.square:hover {
+  background-color: black;
+  opacity: 0.5;
+}
+
 .input-container {
   display: flex;
   justify-content: space-between;

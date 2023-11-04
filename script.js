@@ -7,6 +7,7 @@ const display = document.querySelector(".display");
 const display2 = document.querySelector(".display2");
 const playerTwoForm = document.querySelector(".playerTwoForm");
 const inputContainer = document.querySelector(".input-container");
+const noughtsSymbol = document.getElementById("noughts");
 
 // Create Player Object (Factory)
 
@@ -51,6 +52,7 @@ const GameBoard = (function () {
           square.innerText = playerOne.type;
           squareID = event.target.id;
           gameBoardArr[squareID] = playerOne.type;
+          square.style.color = "red";
           display2.innerText = `${playerTwo.name}'s turn`;
           turn = 1;
           winner();
@@ -59,6 +61,7 @@ const GameBoard = (function () {
           square.innerText = playerTwo.type;
           squareID = event.target.id;
           gameBoardArr[squareID] = playerTwo.type;
+          square.style.color = "green";
           display2.innerText = `${playerOne.name}'s turn`;
           turn = 0;
           winner();
