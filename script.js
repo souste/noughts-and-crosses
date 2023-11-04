@@ -43,6 +43,7 @@ const GameBoard = (function () {
           square.innerText = playerOne.type;
           squareID = event.target.id;
           gameBoardArr[squareID] = playerOne.type;
+          square.style.color = "red";
           computerAI();
           winner();
         }

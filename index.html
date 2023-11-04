@@ -10,6 +10,13 @@
   <body>
     <div class="outer-container">
       <h1 class="title">NOUGHTS & CROSSES</h1>
+
+      <div>
+        <div class="display"></div>
+        <div class="display2"></div>
+        
+       
+        </div>
   
     <div class="container">
       <div id="0" class="square"></div>
@@ -22,18 +29,14 @@
       <div id="7" class="square"></div>
       <div id="8" class="square"></div>
     </div>
+    <button class="reset-button">Reset</button>
     <div>
      
-      <div>
-      <div class="display"></div>
-      <div class="display2"></div>
-      
-        <button class="reset-button">Reset</button>
-      </div>
+    
 
 
       <div class="human-or-comp-container">
-        <label class="decide-label" for="radio">Play against Human or Computer?</label>
+        <div class="human-or-comp-title">Play against Human or Computer?</div>
       <div class="image-container">
       <img class="human-button" src="human.PNG" alt="human-image">
       <img class="computer-button" src="computer.PNG" alt="computer-image">
@@ -46,7 +49,9 @@
         <div class="input-container">
         <div class="player-input-container" id="player-one-form">
           <p>Player One</p>
+          <div class="player-image-container">
           <img src="player1.PNG" alt="player1-image">
+        </div>
           <input type="text" id="nameOne" placeholder="Player 1" />
           <div class="radio-buttons-container">
             <label for="radio">Selection</label>
@@ -59,7 +64,9 @@
       
       <div class="player-input-container" id="player-two-form">
         <p>Player Two</p>
+        <div class="player-image-container">
         <img src="player2.PNG" alt="player2-image">
+      </div>
         <div>
         <input type="text" id="nameTwo" placeholder="Player 2" />
         <div class="radio-buttons-container">
