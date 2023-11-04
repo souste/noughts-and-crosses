@@ -12,6 +12,7 @@ const humanOrComp = document.querySelector(".human-or-comp-container");
 const playerOneForm = document.querySelector("#player-one-form");
 const playerTwoForm = document.querySelector("#player-two-form");
 const computerForm = document.querySelector("#computer-form");
+const resetButton = document.querySelector(".reset-button");
 
 // Create Player Object (Factory)
 
@@ -107,6 +108,23 @@ const GameBoard = (function () {
     inputContainer.style.display = "none";
     startButton.style.display = "none";
     display2.innerText = `${playerOne.name}'s turn`;
+  });
+
+  resetButton.addEventListener("click", () => {
+    playerOne = {};
+    playerTwo = {};
+    GameBoard.gameBoardArr = ["", "", "", "", "", "", "", "", ""];
+    display.innerText = "";
+    display2.innerText = "";
+    clearBoard();
+    container.style.display = "none";
+    playerOneForm.style.display = "none";
+    playerTwoForm.style.display = "none";
+    computerForm.style.display = "none";
+    humanOrComp.style.display = "flex";
+    playerOneName.value = "";
+    playerTwoName.value = "";
+    choiceComp = "";
   });
 
   const computerAI = function () {

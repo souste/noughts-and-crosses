@@ -50,6 +50,7 @@ p {
 }
 
 .human-or-comp-container {
+  display: flex;
 }
 
 .player-input-container {
