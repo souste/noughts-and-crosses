@@ -107,3 +107,7 @@ input[type="text"] {
 .start-button {
   display: none;
 }
+
+.reset-button {
+  display: none;
+}

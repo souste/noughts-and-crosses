@@ -98,6 +98,7 @@ const GameBoard = (function () {
     playerOne = createPlayer(playerOneName.value, document.querySelector(`input[name="typeSelectOne"]:checked`).value);
     playerTwo = createPlayer(playerTwoName.value, document.querySelector(`input[name="typeSelectTwo"]:checked`).value);
     container.style.display = "grid";
+    resetButton.style.display = "block";
     display.innerText = `${playerOne.name} is ${playerOne.type}'s. ${playerTwo.name} is ${playerTwo.type}'s.`;
 
     if (choiceComp === "human") {
@@ -125,6 +126,7 @@ const GameBoard = (function () {
     playerOneName.value = "";
     playerTwoName.value = "";
     choiceComp = "";
+    resetButton.style.display = "none";
   });
 
   const computerAI = function () {
