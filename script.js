@@ -8,6 +8,8 @@ const display2 = document.querySelector(".display2");
 const playerTwoForm = document.querySelector(".playerTwoForm");
 const inputContainer = document.querySelector(".input-container");
 const noughtsSymbol = document.getElementById("noughts");
+const decideButton = document.querySelector(".decide-button");
+const humanOrComp = document.querySelector(".human-or-comp-container");
 
 // Create Player Object (Factory)
 
@@ -70,6 +72,14 @@ const GameBoard = (function () {
     });
   };
 
+  let choiceComp = "";
+
+  decideButton.addEventListener("click", () => {
+    choiceComp = document.querySelector(`input[name="humanOrComp"]:checked`).value;
+    inputContainer.style.display = "flex";
+    humanOrComp.style.display = "none";
+  });
+
   startButton.addEventListener("click", (event) => {
     event.preventDefault();
     playerOne = createPlayer(playerOneName.value, document.querySelector(`input[name="typeSelectOne"]:checked`).value);
@@ -77,9 +87,15 @@ const GameBoard = (function () {
     container.style.display = "grid";
     display.innerText = `${playerOne.name} is ${playerOne.type}'s. ${playerTwo.name} is ${playerTwo.type}'s.`;
 
-    if (document.querySelector(`input[name="humanOrComp"]:checked`).value === "human") {
+    // if (document.querySelector(`input[name="humanOrComp"]:checked`).value === "human") {
+    //   humanGame();
+    // } else if (document.querySelector(`input[name="humanOrComp"]:checked`).value === "comp") {
+    //   computerGame();
+    // }
+
+    if (choiceComp === "human") {
       humanGame();
-    } else if (document.querySelector(`input[name="humanOrComp"]:checked`).value === "comp") {
+    } else if (choiceComp === "comp") {
       computerGame();
     }
     inputContainer.style.display = "none";

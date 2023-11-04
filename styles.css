@@ -47,6 +47,10 @@ p {
   display: flex;
   justify-content: space-between;
   width: 600px;
+  display: none;
+}
+
+.human-or-comp-container {
 }
 
 .player-input-container {

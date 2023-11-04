@@ -30,6 +30,14 @@
       
         <!-- <button class="reset-button">Reset</button> -->
       </div>
+
+
+      <div class="human-or-comp-container">
+        <label for="radio">Play against Human or Computer?</label>
+        <input type="radio" name="humanOrComp" id="human" value="human" >Human</input>
+        <input type="radio" name="humanOrComp" id="comp" value="comp" >Computer</input>
+        <button class="decide-button">Decide</button>
+      </div>
       <form>
         <div class="input-container">
         <div class="player-input-container">
@@ -39,7 +47,6 @@
           <div class="radio-buttons-container">
             <label for="radio">Selection</label>
             <input type="radio" name="typeSelectOne" id="noughts" value="0">0's</input>
-         
             <input type="radio" name="typeSelectOne" id="crosses" value="X">X's</input>
           
           </div>
@@ -48,11 +55,7 @@
       
       <div class="player-input-container">
         <p>Player Two</p>
-        <div class="radio-buttons-container">
-          <label for="radio">Human or Computer?</label>
-          <input type="radio" name="humanOrComp" id="human" value="human" >Human</input>
-          <input type="radio" name="humanOrComp" id="comp" value="comp" >Computer</input>
-        </div>
+       
         <div class="playerTwoForm">
         <input type="text" id="nameTwo" placeholder="Player 2" />
         <div class="radio-buttons-container">
