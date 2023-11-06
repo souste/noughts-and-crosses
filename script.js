@@ -64,7 +64,6 @@ const GameBoard = (function () {
           squareID = event.target.id;
           gameBoardArr[squareID] = playerOne.type;
           square.style.color = "red";
-          display2.innerText = `${playerTwo.name}'s turn`;
           turn = 1;
           winner();
         } else if (turn === 1 && square.innerText === "") {
@@ -73,7 +72,6 @@ const GameBoard = (function () {
           squareID = event.target.id;
           gameBoardArr[squareID] = playerTwo.type;
           square.style.color = "green";
-          display2.innerText = `${playerOne.name}'s turn`;
           turn = 0;
           winner();
         }
@@ -110,7 +108,6 @@ const GameBoard = (function () {
     display.innerText = `${playerOne.name} is ${playerOne.type}'s. ${playerTwo.name} is ${playerTwo.type}'s.`;
 
     if (choiceComp === "human") {
-      display2.innerText = `${playerOne.name}'s turn`;
       playerOnePic.style.display = "block";
       playerTwoPic.style.display = "block";
       humanGame();
@@ -177,7 +174,6 @@ const GameBoard = (function () {
       if (gameBoardArr[a] === "0" && gameBoardArr[b] === "0" && gameBoardArr[c] === "0") {
         setTimeout(function () {
           display.innerText = `${playerOne.name} wins`;
-          display2.innerText = "";
         }, 100);
         setTimeout(function () {
           clearBoard();
@@ -185,7 +181,6 @@ const GameBoard = (function () {
       } else if (gameBoardArr[a] === "X" && gameBoardArr[b] === "X" && gameBoardArr[c] === "X") {
         setTimeout(function () {
           display.innerText = `${playerTwo.name} wins`;
-          display2.innerText = "";
         }, 100);
         setTimeout(function () {
           clearBoard();
@@ -193,7 +188,6 @@ const GameBoard = (function () {
       } else if (gameBoardArr.every((el) => el !== "")) {
         setTimeout(function () {
           display.innerText = "Draw";
-          display2.innerText = "";
         }, 100);
         setTimeout(function () {
           clearBoard();

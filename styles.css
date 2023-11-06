@@ -7,6 +7,7 @@
 
 .title {
   font-size: 60px;
+  font-family: "Black Ops One";
 }
 
 p {
@@ -32,6 +33,10 @@ p {
   font-size: 70px;
 }
 
+.square {
+  /* background-color: black; */
+}
+
 .square:hover {
   background-color: black;
   opacity: 0.5;
@@ -47,6 +52,7 @@ p {
 .human-or-comp-title {
   font-size: 30px;
   margin-bottom: 20px;
+  font-family: "Black Ops One";
 }
 
 .image-container {
@@ -62,10 +68,12 @@ img {
 
 /* Display */
 
-.display,
-.display2 {
+.display {
   font-size: 30px;
   font-size: 40px;
+  /* border: 2px solid red; */
+  text-align: center;
+  font-family: "Black Ops One";
 }
 
 .display-images-container {
