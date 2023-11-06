@@ -174,7 +174,7 @@ const GameBoard = (function () {
       if (gameBoardArr[a] === "0" && gameBoardArr[b] === "0" && gameBoardArr[c] === "0") {
         setTimeout(function () {
           display.innerText = `${playerOne.name} wins`;
-        }, 500);
+        }, 200);
         setTimeout(function () {
           display.innerText = `${playerOne.name} is ${playerOne.type}'s. ${playerTwo.name} is ${playerTwo.type}'s.`;
           clearBoard();
@@ -182,7 +182,7 @@ const GameBoard = (function () {
       } else if (gameBoardArr[a] === "X" && gameBoardArr[b] === "X" && gameBoardArr[c] === "X") {
         setTimeout(function () {
           display.innerText = `${playerTwo.name} wins`;
-        }, 500);
+        }, 200);
         setTimeout(function () {
           display.innerText = `${playerOne.name} is ${playerOne.type}'s. ${playerTwo.name} is ${playerTwo.type}'s.`;
           clearBoard();
@@ -190,7 +190,7 @@ const GameBoard = (function () {
       } else if (gameBoardArr.every((el) => el !== "")) {
         setTimeout(function () {
           display.innerText = "Draw";
-        }, 500);
+        }, 200);
         setTimeout(function () {
           display.innerText = `${playerOne.name} is ${playerOne.type}'s. ${playerTwo.name} is ${playerTwo.type}'s.`;
           clearBoard();

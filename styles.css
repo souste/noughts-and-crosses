@@ -40,19 +40,16 @@ p {
   font-size: 70px;
 }
 
-.square {
-  /* background-color: black; */
-}
-
 .square:hover {
-  background-color: black;
+  background-color: yellow;
   opacity: 0.5;
+  cursor: pointer;
 }
 
 /* Human or Computer Form */
 
 .human-or-comp-container {
-  margin-top: 200px;
+  margin-top: 100px;
   display: flex;
   flex-direction: column;
 }
@@ -68,6 +65,15 @@ p {
   justify-content: space-between;
 }
 
+.human-or-comp-container img {
+  cursor: pointer;
+}
+
+.human-or-comp-container img:hover {
+  width: 120px;
+  height: 120px;
+}
+
 img {
   width: 100px;
   height: 100px;
@@ -78,13 +84,12 @@ img {
 .display {
   font-size: 30px;
   font-size: 40px;
-  /* border: 2px solid red; */
   text-align: center;
+  margin-bottom: 20px;
   font-family: "Black Ops One";
 }
 
 .display-images-container {
-  width: 500px;
   display: flex;
   justify-content: space-between;
 }
@@ -101,6 +106,7 @@ img {
   display: flex;
   justify-content: space-between;
   width: 600px;
+  margin-top: 100px;
 }
 
 .player-input-container {
@@ -149,7 +155,7 @@ label {
 .start-button,
 .reset-button,
 .decide-button {
-  background-color: #f87171;
+  background-color: #a6a9da;
   width: 6rem;
   height: 2.5rem;
   border-radius: 10px;
