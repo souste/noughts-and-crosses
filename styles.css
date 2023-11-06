@@ -57,7 +57,7 @@ p {
 .human-or-comp-title {
   font-size: 30px;
   margin-bottom: 20px;
-  font-family: "Black Ops One";
+  font-family: "VT323", monospace;
 }
 
 .image-container {
@@ -86,7 +86,7 @@ img {
   font-size: 40px;
   text-align: center;
   margin-bottom: 20px;
-  font-family: "Black Ops One";
+  font-family: "VT323", monospace;
 }
 
 .display-images-container {
@@ -152,10 +152,20 @@ label {
   font-family: "Black Ops One";
 }
 
+#nameOne,
+#nameTwo {
+  font-family: "VT323", monospace;
+}
+
+#nameOne::placeholder,
+#nameTwo::placeholder {
+  font-family: "VT323", monospace;
+}
+
 .start-button,
 .reset-button,
 .decide-button {
-  background-color: #a6a9da;
+  background-color: #259942;
   width: 6rem;
   height: 2.5rem;
   border-radius: 10px;

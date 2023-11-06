@@ -46,7 +46,6 @@ const GameBoard = (function () {
           square.innerText = playerOne.type;
           squareID = event.target.id;
           gameBoardArr[squareID] = playerOne.type;
-          square.style.color = "red";
           computerAI();
           winner();
         }
@@ -63,7 +62,6 @@ const GameBoard = (function () {
           square.innerText = playerOne.type;
           squareID = event.target.id;
           gameBoardArr[squareID] = playerOne.type;
-          square.style.color = "red";
           turn = 1;
           winner();
         } else if (turn === 1 && square.innerText === "") {
@@ -71,7 +69,6 @@ const GameBoard = (function () {
           square.innerText = playerTwo.type;
           squareID = event.target.id;
           gameBoardArr[squareID] = playerTwo.type;
-          square.style.color = "green";
           turn = 0;
           winner();
         }
