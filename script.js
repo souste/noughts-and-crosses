@@ -78,7 +78,6 @@ const GameBoard = (function () {
   };
 
   let choiceComp = "";
-  let playerTwoType = "";
 
   humanButton.addEventListener("click", () => {
     choiceComp = "human";
@@ -168,6 +167,9 @@ const GameBoard = (function () {
       [0, 4, 8],
       [2, 4, 6],
     ];
+
+    let isDraw = true;
+
     for (const line of winnerLines) {
       const [a, b, c] = line;
       if (gameBoardArr[a] === "0" && gameBoardArr[b] === "0" && gameBoardArr[c] === "0") {
@@ -178,6 +180,7 @@ const GameBoard = (function () {
           display.innerText = `${playerOne.name} is ${playerOne.type}'s. ${playerTwo.name} is ${playerTwo.type}'s.`;
           clearBoard();
         }, 2000);
+        isDraw = false;
       } else if (gameBoardArr[a] === "X" && gameBoardArr[b] === "X" && gameBoardArr[c] === "X") {
         setTimeout(function () {
           display.innerText = `${playerTwo.name} wins`;
@@ -186,16 +189,17 @@ const GameBoard = (function () {
           display.innerText = `${playerOne.name} is ${playerOne.type}'s. ${playerTwo.name} is ${playerTwo.type}'s.`;
           clearBoard();
         }, 2000);
-      } else if (gameBoardArr.every((el) => el !== "")) {
-        setTimeout(function () {
-          display.innerText = "Draw";
-        }, 200);
-        setTimeout(function () {
-          display.innerText = `${playerOne.name} is ${playerOne.type}'s. ${playerTwo.name} is ${playerTwo.type}'s.`;
-          clearBoard();
-        }, 2000);
-        return;
+        isDraw = false;
       }
+    }
+    if (isDraw && gameBoardArr.every((el) => el !== "")) {
+      setTimeout(function () {
+        display.innerText = "Draw";
+      }, 200);
+      setTimeout(function () {
+        display.innerText = `${playerOne.name} is ${playerOne.type}'s. ${playerTwo.name} is ${playerTwo.type}'s.`;
+        clearBoard();
+      }, 2000);
     }
   };
 
