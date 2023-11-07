@@ -64,6 +64,7 @@ const GameBoard = (function () {
           squareID = event.target.id;
           gameBoardArr[squareID] = playerOne.type;
           turn = 1;
+          display2.innerText = `${playerTwo.name}'s turn`;
           winner();
         } else if (turn === 1 && square.innerText === "") {
           player = playerTwo.type;
@@ -71,6 +72,7 @@ const GameBoard = (function () {
           squareID = event.target.id;
           gameBoardArr[squareID] = playerTwo.type;
           turn = 0;
+          display2.innerText = `${playerOne.name}'s turn`;
           winner();
         }
       });
@@ -108,6 +110,7 @@ const GameBoard = (function () {
     if (choiceComp === "human") {
       playerOnePic.style.display = "block";
       playerTwoPic.style.display = "block";
+      display2.innerText = `${playerOne.name}'s turn`;
       humanGame();
     } else if (choiceComp === "comp") {
       playerTwo.name = "Computer";
