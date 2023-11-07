@@ -30,6 +30,7 @@ function createPlayer(name, type) {
 
 let playerOne;
 let playerTwo;
+let player;
 
 // GameBoard (IIFE Module)
 
@@ -77,6 +78,7 @@ const GameBoard = (function () {
   };
 
   let choiceComp = "";
+  let playerTwoType = "";
 
   humanButton.addEventListener("click", () => {
     choiceComp = "human";
@@ -99,7 +101,7 @@ const GameBoard = (function () {
   startButton.addEventListener("click", (event) => {
     event.preventDefault();
     playerOne = createPlayer(playerOneName.value, document.querySelector(`input[name="typeSelectOne"]:checked`).value);
-    playerTwo = createPlayer(playerTwoName.value, document.querySelector(`input[name="typeSelectTwo"]:checked`).value);
+    playerTwo = createPlayer(playerTwoName.value, playerOne.type === "X" ? "0" : "X");
     container.style.display = "grid";
     resetButton.style.display = "block";
     display.innerText = `${playerOne.name} is ${playerOne.type}'s. ${playerTwo.name} is ${playerTwo.type}'s.`;
