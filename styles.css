@@ -37,7 +37,8 @@ p {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 70px;
+  font-size: 80px;
+  font-family: "Black Ops One";
 }
 
 .square:hover {
