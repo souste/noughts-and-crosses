@@ -64,16 +64,16 @@ const GameBoard = (function () {
           squareID = event.target.id;
           gameBoardArr[squareID] = playerOne.type;
           turn = 1;
-          display2.innerText = `${playerTwo.name}'s turn`;
           winner();
+          display2.innerText = `${playerTwo.name}'s turn`;
         } else if (turn === 1 && square.innerText === "") {
           player = playerTwo.type;
           square.innerText = playerTwo.type;
           squareID = event.target.id;
           gameBoardArr[squareID] = playerTwo.type;
           turn = 0;
-          display2.innerText = `${playerOne.name}'s turn`;
           winner();
+          display2.innerText = `${playerOne.name}'s turn`;
         }
       });
     });
@@ -182,7 +182,7 @@ const GameBoard = (function () {
         setTimeout(function () {
           display.innerText = `${playerOne.name} is ${playerOne.type}'s. ${playerTwo.name} is ${playerTwo.type}'s.`;
           clearBoard();
-        }, 2000);
+        }, 3000);
         isDraw = false;
       } else if (gameBoardArr[a] === "X" && gameBoardArr[b] === "X" && gameBoardArr[c] === "X") {
         setTimeout(function () {
@@ -191,7 +191,7 @@ const GameBoard = (function () {
         setTimeout(function () {
           display.innerText = `${playerOne.name} is ${playerOne.type}'s. ${playerTwo.name} is ${playerTwo.type}'s.`;
           clearBoard();
-        }, 2000);
+        }, 3000);
         isDraw = false;
       }
     }
@@ -202,7 +202,7 @@ const GameBoard = (function () {
       setTimeout(function () {
         display.innerText = `${playerOne.name} is ${playerOne.type}'s. ${playerTwo.name} is ${playerTwo.type}'s.`;
         clearBoard();
-      }, 2000);
+      }, 3000);
     }
   };
 

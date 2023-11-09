@@ -91,6 +91,10 @@ img {
   font-family: "VT323", monospace;
 }
 
+.display {
+  margin-top: 30px;
+}
+
 .display-images-container {
   display: flex;
   justify-content: space-between;
