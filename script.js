@@ -11,7 +11,7 @@ const humanOrComp = document.querySelector(".human-or-comp-container");
 const playerOneForm = document.querySelector("#player-one-form");
 const playerTwoForm = document.querySelector("#player-two-form");
 const computerForm = document.querySelector("#computer-form");
-const resetButton = document.querySelector(".reset-button");
+// const resetButton = document.querySelector(".reset-button");
 const playerOnePic = document.querySelector(".player1-display-pic");
 const playerTwoPic = document.querySelector(".player2-display-pic");
 const compPic = document.querySelector(".comp-display-pic");
@@ -104,7 +104,7 @@ const GameBoard = (function () {
     playerOne = createPlayer(playerOneName.value, document.querySelector(`input[name="typeSelectOne"]:checked`).value);
     playerTwo = createPlayer(playerTwoName.value, playerOne.type === "X" ? "0" : "X");
     container.style.display = "grid";
-    resetButton.style.display = "block";
+    // resetButton.style.display = "block";
     display.innerText = `${playerOne.name} is ${playerOne.type}'s. ${playerTwo.name} is ${playerTwo.type}'s.`;
 
     if (choiceComp === "human") {
@@ -123,26 +123,26 @@ const GameBoard = (function () {
     startButton.style.display = "none";
   });
 
-  resetButton.addEventListener("click", () => {
-    playerOne = {};
-    playerTwo = {};
-    GameBoard.gameBoardArr = ["", "", "", "", "", "", "", "", ""];
-    display.innerText = "";
-    display2.innerText = "";
-    clearBoard();
-    container.style.display = "none";
-    playerOneForm.style.display = "none";
-    playerTwoForm.style.display = "none";
-    computerForm.style.display = "none";
-    humanOrComp.style.display = "flex";
-    playerOneName.value = "";
-    playerTwoName.value = "";
-    choiceComp = "";
-    resetButton.style.display = "none";
-    playerOnePic.style.display = "none";
-    playerTwoPic.style.display = "none";
-    compPic.style.display = "none";
-  });
+  // resetButton.addEventListener("click", () => {
+  //   playerOne = {};
+  //   playerTwo = {};
+  //   GameBoard.gameBoardArr = ["", "", "", "", "", "", "", "", ""];
+  //   display.innerText = "";
+  //   display2.innerText = "";
+  //   clearBoard();
+  //   container.style.display = "none";
+  //   playerOneForm.style.display = "none";
+  //   playerTwoForm.style.display = "none";
+  //   computerForm.style.display = "none";
+  //   humanOrComp.style.display = "flex";
+  //   playerOneName.value = "";
+  //   playerTwoName.value = "";
+  //   choiceComp = "";
+  //   resetButton.style.display = "none";
+  //   playerOnePic.style.display = "none";
+  //   playerTwoPic.style.display = "none";
+  //   compPic.style.display = "none";
+  // });
 
   const computerAI = function () {
     const emptySquares = [];
